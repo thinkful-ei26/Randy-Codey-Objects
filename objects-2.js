@@ -5,13 +5,11 @@ const testData = [
   ];
 
 const makeStudentReport = (data) => {
+    return data.map(student => `${student.name}: ${student.grade}`);
 
-    const grades = data.map(student => `${student.name}: ${student.grade}`)
-
-    return grades;
 }
 
-//console.log(makeStudentReport(testData));
+console.log(makeStudentReport(testData));
 
 
 const studentData = [
@@ -34,12 +32,27 @@ const studentData = [
 
 const enrollInSummerSchool = (students) => {
     students.forEach(student => {
-        student.name;
-        student.course;
         student.status = 'In Summer School';
     });
     return students;
 }
 
-console.log(enrollInSummerSchool(studentData));
+//console.log(enrollInSummerSchool(studentData));
+
+
+const scratchData = [
+    { id: 22, foo: 'bar' },
+    { id: 28, foo: 'bizz' },
+    { id: 19, foo: 'bazz' },
+  ];
+
+const findById = (items, idNum) => {
+   return items.find( element => {
+        if(element.id == idNum) {
+            return element
+        }
+    });
+}
+
+//console.log(findById(scratchData, 22));
 
