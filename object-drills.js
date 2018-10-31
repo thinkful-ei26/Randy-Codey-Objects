@@ -46,3 +46,27 @@ const food = {
 };
 
 console.log(food.meals[3])
+
+
+// Create 3-5 objects, each with a name and a jobTitle.
+// Use people you know, or characters from fiction, or your own inventions.
+// Store these objects in an array.
+// Iterate over the array and use console.log 
+// to show each person's job title and name.
+
+const jobCreator = (name, jobTitle) => {
+    return {
+        name,
+        'Job title': jobTitle,
+    }
+}
+
+let randy = jobCreator('Randy', 'Coder');
+let codey = jobCreator('Codey', 'Coder');
+let rich = jobCreator('Rich', 'Teacher');
+
+let people = [];
+people.push(randy, codey, rich);
+
+people.forEach(person => console.log(`${person['Job title']}: ${person.name}`));
+
