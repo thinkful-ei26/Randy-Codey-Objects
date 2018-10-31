@@ -35,6 +35,7 @@ function personMaker() {
   }
 
   const person = personMaker();
+  console.log(person.fullName());
 
 
 const sampleObj = {

@@ -1,3 +1,13 @@
+const HEROES = [
+    { id: 1, name: 'Captain America', squad: 'Avengers' },
+    { id: 2, name: 'Iron Man', squad: 'Avengers' },
+    { id: 3, name: 'Spiderman', squad: 'Avengers' },
+    { id: 4, name: 'Superman', squad: 'Justice League' },
+    { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+    { id: 6, name: 'Aquaman', squad: 'Justice League' },
+    { id: 7, name: 'Hulk', squad: 'Avengers' },
+  ];
+
 // Create an object called loaf using an object
 //  initializer ({}) with two properties: flour, 
 //  which should be set to 300 and water which should be set to 210.
@@ -124,4 +134,63 @@ const decodeWords = (message) => {
 
 const myMessage = 'craft block argon meter bells brown croon droop';
 
-console.log(decodeWords(myMessage));
+//console.log(decodeWords(myMessage));
+
+
+const createCharacter = (name, race, origin, attack, defense, weapon) => {
+    return {
+        name: name,
+        race: race,
+        origin: origin,
+        attack: attack || Math.round(Math.random(1, 9) * 10),
+        defense: defense || Math.round(Math.random(1, 9) * 10),
+        weapon: weapon || 'sword',
+        describe: function() {
+            return `${name} is a ${race} from ${origin} who uses a ${weapon}.`
+        },
+        evaluateFight: function(character) {
+            let x = this.attack - character.defense;
+            let y = character.attack - this.defense;
+
+            if(x < 0 ) {
+                x = 0;
+            }
+            if(y < 0) {
+                y = 0;
+            }
+            return `Your opponent takes ${x} damage and you receive ${y} damage`
+        }
+    }
+}
+
+let characters = [createCharacter('Gandalf','Wizard','Middle Earth', 9, 9,'Staff'), createCharacter('Bilbo', 'Hobbit', 'The Shire'), createCharacter('Frodo', 'Hobbit', 'The Shire'), createCharacter('Aragorn', 'Man', 'Dunnedain'), createCharacter('Legolas', 'Elf', 'Woodland Realm')];
+
+characters.push(createCharacter('Arwen', 'Elf', 'Rivendell'));
+
+let myChar = characters.find( character => character.name === 'Aragorn');
+//console.log(myChar.describe());
+
+let hobbits = characters.filter( character => character.race === "Hobbit");
+//console.log(hobbits);
+
+let highAtk = characters.filter( character => character.attack > 5);
+//console.log(highAtk);
+
+//console.log(myChar.evaluateFight(myChar));
+
+const findOne = (arr, query) => {
+    arr.forEach( object => {
+        for( const prop in object) {
+                let val = prop;
+                if(prop == query.hasOwnProperty(val)) {
+                    console.log('works');
+                    if(object[prop] != query[prop]) {
+                        return null
+                    }
+                }
+        }
+        return object
+    })
+}
+
+console.log(findOne(HEROES, { id: 1 }));
