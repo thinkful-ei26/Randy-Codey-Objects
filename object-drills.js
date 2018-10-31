@@ -70,3 +70,28 @@ people.push(randy, codey, rich);
 
 people.forEach(person => console.log(`${person['Job title']}: ${person.name}`));
 
+// Expand on the previous example by adding a boss property to 
+// everyone except the owner of the company.
+// Change the iteration to print out messages in this format: 
+// "${title} ${name} reports to ${boss}.". 
+// For example: Junior Engineer Bob reports to Fred..
+// What gets printed out for the owner?
+// Adjust the message so that people with no boss 
+// display "${title} ${name} doesn't report to anybody." 
+// - for example, Founder John doesn't report to anybody.
+
+ 
+people.map(person => {
+    if (person.name !== 'Rich') {
+        person.boss = 'Rich'
+        person.message = function() {
+            console.log(`${this['Job title']} ${this.name} reports to ${this.boss}.`);
+        }
+    } else {
+        person.message = function() {
+            console.log(`${this['Job title']} ${this.name} doesn't report to anybody.`);
+        }
+    }
+});
+
+people.forEach(person => console.log(person.message()));
