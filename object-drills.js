@@ -95,3 +95,29 @@ people.map(person => {
 });
 
 people.forEach(person => console.log(person.message()));
+
+// Redo your Cracking the Code problem from String Drills 
+// but this time use an object as your cipher. 
+// Additionally, create a decodeWords function that 
+// utilizes your decode function to accept a single string of words, 
+// and then return the fully decoded message as a string.
+
+const decode = (object) => {
+    switch (string) {
+        case string[0] === 'a':
+            return string[1]
+        case string[0] === 'b':
+            return string[2]
+        case string[0] === 'c':
+            return string[3]
+        case string[0] === 'd':
+            return string[4]
+        default:
+            return ' '
+    }
+}
+
+const decodeWords = (decode, ) => {
+
+}
+
