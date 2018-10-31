@@ -15,7 +15,7 @@ let loaf = {
     }
 };
 
-console.log(loaf.hydration());
+//console.log(loaf.hydration());
 
 // Create an object with five properties: 
 // foo, bar, fum, quux, and spam. Give each property a unique value of your choosing.
@@ -31,7 +31,7 @@ const object1 = {
 }
 
 for (const prop in object1) {
-    console.log(`${prop}: ${object1[prop]}`)
+    //console.log(`${prop}: ${object1[prop]}`)
 }
 
 
@@ -45,7 +45,7 @@ const food = {
     meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper'],
 };
 
-console.log(food.meals[3])
+//console.log(food.meals[3])
 
 
 // Create 3-5 objects, each with a name and a jobTitle.
@@ -68,7 +68,7 @@ let rich = jobCreator('Rich', 'Teacher');
 let people = [];
 people.push(randy, codey, rich);
 
-people.forEach(person => console.log(`${person['Job title']}: ${person.name}`));
+//people.forEach(person => console.log(`${person['Job title']}: ${person.name}`));
 
 // Expand on the previous example by adding a boss property to 
 // everyone except the owner of the company.
@@ -85,16 +85,16 @@ people.map(person => {
     if (person.name !== 'Rich') {
         person.boss = 'Rich'
         person.message = function() {
-            console.log(`${this['Job title']} ${this.name} reports to ${this.boss}.`);
+            //console.log(`${this['Job title']} ${this.name} reports to ${this.boss}.`);
         }
     } else {
         person.message = function() {
-            console.log(`${this['Job title']} ${this.name} doesn't report to anybody.`);
+            //console.log(`${this['Job title']} ${this.name} doesn't report to anybody.`);
         }
     }
 });
 
-people.forEach(person => console.log(person.message()));
+//people.forEach(person => console.log(person.message()));
 
 // Redo your Cracking the Code problem from String Drills 
 // but this time use an object as your cipher. 
@@ -102,22 +102,26 @@ people.forEach(person => console.log(person.message()));
 // utilizes your decode function to accept a single string of words, 
 // and then return the fully decoded message as a string.
 
-const decode = (object) => {
-    switch (string) {
-        case string[0] === 'a':
-            return string[1]
-        case string[0] === 'b':
-            return string[2]
-        case string[0] === 'c':
-            return string[3]
-        case string[0] === 'd':
-            return string[4]
-        default:
-            return ' '
-    }
+const decode = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
 }
 
-const decodeWords = (decode, ) => {
+const decodeWords = (message) => {
+    words = message.split(" ");
+    let decoded = "";
 
+    words.forEach( word => {
+        if(decode.hasOwnProperty(word[0])) {
+            decoded += word[decode[word[0]]];
+        }
+        else decoded += ' ';
+    })
+    return decoded;
 }
 
+const myMessage = 'craft block argon meter bells brown croon droop';
+
+console.log(decodeWords(myMessage));
