@@ -16,3 +16,21 @@ let loaf = {
 };
 
 console.log(loaf.hydration());
+
+// Create an object with five properties: 
+// foo, bar, fum, quux, and spam. Give each property a unique value of your choosing.
+// Loop over the object using for ... in
+// Use console.log to show each property name and its associated value.
+
+const object1 = {
+    foo: 'red',
+    bar: 'blue',
+    fum: 'yellow',
+    quux: 'brown',
+    spam: 'orange',
+}
+
+for (const prop in object1) {
+    console.log(`${prop}: ${object1[prop]}`)
+}
+
